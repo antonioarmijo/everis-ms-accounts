@@ -35,7 +35,7 @@
 </ul>
 <li>Test unitario de Service, donde se define la lógica a través de los test.</li> 
 <ul>
-<li>XXXX</li>
+<li>AccountServiceMockTest</li>
 </ul>
 <li>Implementación de Service, verificando funcionamiento de los test.</li>
 <ul>
@@ -47,7 +47,7 @@
 </ul>
 <li>Test integrado de Service.</li>
 <ul>
-<li>XXXX</li>
+<li>AccountServiceIntegTest</li>
 </ul>
 <li>Controller que publica Service (en el punto siguiente).</li> 
 <ul>

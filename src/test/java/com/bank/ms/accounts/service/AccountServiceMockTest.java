@@ -36,7 +36,7 @@ public class AccountServiceMockTest {
         BigDecimal expectedBalance1  = BigDecimal.valueOf(100.11);
         BigDecimal expectedBalance2  = BigDecimal.valueOf(200.22);
 
-        List<AccountModel> accountModels = new ArrayList();
+        List<AccountModel> accountModels = new ArrayList<>();
         accountModels.add(buildAccountModel(personId,accountNumber1,expectedBalance1));
         accountModels.add(buildAccountModel(personId,accountNumber2,expectedBalance2));
 
@@ -50,7 +50,7 @@ public class AccountServiceMockTest {
         Assertions.assertEquals(accountModels.size(),accountsBalance.getAccounts().size());
 
         Iterator<AccountModel> itModel = accountModels.iterator();
-        Iterator<AccountBalanceDto> itAcBal = accountsBalance.getAccounts().listIterator();
+        Iterator<AccountBalanceDto> itAcBal = accountsBalance.getAccounts().iterator();
         while (itModel.hasNext() && itAcBal.hasNext()){
             AccountModel accountModel = itModel.next();
             Assertions.assertEquals(accountModel.getPersonId(),personId);
@@ -64,7 +64,7 @@ public class AccountServiceMockTest {
     public void accountsBalance_empty(){
         BusinessException exception = Assertions.assertThrows(BusinessException.class,() -> {
             long personId = 2;
-            List<AccountModel> accountModels = new ArrayList();
+            List<AccountModel> accountModels = new ArrayList<>();
             Mockito.when(accountRepository.findAccounts(personId)).thenReturn(accountModels);
             accountService.getAccountsBalance(personId);
         });
